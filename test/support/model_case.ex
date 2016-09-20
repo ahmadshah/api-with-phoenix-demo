@@ -22,6 +22,7 @@ defmodule ApiWithPhoenixDemo.ModelCase do
       import Ecto.Changeset
       import Ecto.Query
       import ApiWithPhoenixDemo.ModelCase
+      import ApiWithPhoenixDemo.Assertion
     end
   end
 

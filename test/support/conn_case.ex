@@ -26,6 +26,7 @@ defmodule ApiWithPhoenixDemo.ConnCase do
       import Ecto.Query
 
       import ApiWithPhoenixDemo.Router.Helpers
+      import ApiWithPhoenixDemo.Assertion
 
       # The default endpoint for testing
       @endpoint ApiWithPhoenixDemo.Endpoint

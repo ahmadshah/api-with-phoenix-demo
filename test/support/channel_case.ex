@@ -25,6 +25,7 @@ defmodule ApiWithPhoenixDemo.ChannelCase do
       import Ecto.Changeset
       import Ecto.Query
 
+      import ApiWithPhoenixDemo.Assertion
 
       # The default endpoint for testing
       @endpoint ApiWithPhoenixDemo.Endpoint
