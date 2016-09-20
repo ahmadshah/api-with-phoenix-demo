@@ -22,6 +22,21 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+  # Guardian configuration
+  config :guardian, Guardian,
+    hooks: GuardianDb,
+    allowed_algos: ["HS512"],
+    verify_module: Guardian.JWT,
+    issuer: "Elixir",
+    ttl: { 30, :days },
+    verify_issuer: true,
+    secret_key: "i/OrQgqlsIfOwEwHD08B7e50einJJPMkzXFl9uaSXHwe6I21TJ8yqywyz9NMSlxv",
+    serializer: ApiWithPhoenixDemo.Auth.Serializer
+
+  config :guardian_db, GuardianDb,
+    repo: ApiWithPhoenixDemo.Repo,
+    schema_name: "user_tokens"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
