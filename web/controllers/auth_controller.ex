@@ -3,6 +3,8 @@ defmodule ApiWithPhoenixDemo.AuthController do
 
   alias ApiWithPhoenixDemo.Auth.{Authenticator, Token}
 
+  plug Guardian.Plug.EnsureNotAuthenticated
+
   def login(conn, %{"email" => email, "password" => password}) do
     case Authenticator.authenticate(email, password) do
       {:error} -> {:error}
