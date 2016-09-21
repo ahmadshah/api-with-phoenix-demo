@@ -5,7 +5,8 @@ defmodule ApiWithPhoenixDemo.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", ApiWithPhoenixDemo do
+  scope "/v1", ApiWithPhoenixDemo do
     pipe_through :api
+    post "/authenticate", AuthController, :login
   end
 end
